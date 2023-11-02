@@ -24,20 +24,18 @@ Before you begin, ensure you have the following prerequisites:
 
 SSH into the EC2 instance and clone your web app repository from GitHub:
 
-```bash
 ssh -i your-key.pem ubuntu@your-instance-public-ip
 git clone https://github.com/yourusername/your-repo.git
 3. Install Docker and AWS CLI
 Install Docker and AWS CLI on the EC2 instance:
 
-bash
-Copy code
 # Install Docker
 sudo apt-get update
 sudo apt-get install docker.io
 
 # Install AWS CLI
 sudo apt-get install awscli
+
 4. Configure AWS CLI
 Run aws configure and enter the AWS access key and secret key for your AWS account.
 
@@ -47,10 +45,7 @@ Take note of the repository URI.
 6. Build and Push Docker Images
 On the EC2 instance, navigate to your cloned repository:
 
-bash
-Copy code
 cd your-repo
-
 # Build and push the Docker images to the ECR repository
 docker build -t your-repo-frontend .
 docker tag your-repo-frontend:latest your-ecr-repo-uri/your-repo-frontend:latest
